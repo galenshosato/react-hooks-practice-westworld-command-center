@@ -3,23 +3,22 @@ import { Grid } from "semantic-ui-react";
 import Details from "./Details";
 import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
-import LogPanel from "./LogPanel"
+import LogPanel from "./LogPanel";
+import HostInfo from "./HostInfo";
 
 function Headquarters({hostList}) {
-  const [isSelected, setIsSelected] =useState(false)
   const [selectedDetails, setSelectedDetails] =useState({})
+  console.log(selectedDetails)
 
-  function handleClick (event) {
-    setIsSelected(prev => !prev)
-    
-  }
+  
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>
-        <ColdStorage hostList={hostList} isSelected={isSelected} handleClick={handleClick} />
+        <ColdStorage hostList={hostList} setSelectedDetails={setSelectedDetails} />
       </Grid.Column>
       <Grid.Column width={5}>
-        <Details />
+        <Details host={selectedDetails} />
+        <HostInfo />
       </Grid.Column>
       <Grid.Column width={3}>
         <LogPanel />
