@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Card } from "semantic-ui-react";
 import "../stylesheets/Host.css";
 
@@ -6,14 +6,14 @@ function Host({host, setSelectedDetails, setIsSelected, isSelected, setHostSelec
   
 
   function handleClick(event) {
-    setIsSelected(!isSelected)
+    setIsSelected(host.id)
     setSelectedDetails(host)
     setHostSelect(true)
   }
 
   return (
     <Card
-      className={isSelected ? "host selected" : "host"}
+      className={isSelected === host.id ? "host selected" : "host"}
       onClick={handleClick}
       image={host.imageUrl}
       raised

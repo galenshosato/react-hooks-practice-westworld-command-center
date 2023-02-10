@@ -8,17 +8,16 @@ import LogPanel from "./LogPanel";
 
 function Headquarters({hostList}) {
   const [selectedDetails, setSelectedDetails] =useState({})
-  const [isSelected, setIsSelected] =useState(false)
   const [hostSelect, setHostSelect] =useState(false)
 
   
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>
-        <ColdStorage hostList={hostList} setHostSelect={setHostSelect} setSelectedDetails={setSelectedDetails} setIsSelected={setIsSelected} isSelected={isSelected} />
+        <ColdStorage hostList={hostList} setHostSelect={setHostSelect} setSelectedDetails={setSelectedDetails} />
       </Grid.Column>
       <Grid.Column width={5}>
-        <Details host={selectedDetails} isSelected={isSelected} hostSelect={hostSelect} />
+        <Details host={selectedDetails} hostSelect={hostSelect} />
       </Grid.Column>
       <Grid.Column width={3}>
         <LogPanel />

@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card } from "semantic-ui-react";
 import Host from "./Host";
 
-function HostList({hostList, setSelectedDetails, setIsSelected, isSelected, setHostSelect}) {
+function HostList({hostList, setSelectedDetails, setHostSelect}) {
+  const [isSelected, setIsSelected] = useState(null)
   return (
     <Card.Group itemsPerRow={6}>
       {hostList.map(host => {
