@@ -1,6 +1,7 @@
 import React from "react";
 import "../stylesheets/Area.css";
 
+
 function Area({area}) {
   function cleanUpArea (name) {
     let cleanName = name.replace(/_/g, " ")

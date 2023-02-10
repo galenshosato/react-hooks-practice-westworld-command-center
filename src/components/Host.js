@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import { Card } from "semantic-ui-react";
 import "../stylesheets/Host.css";
 
-function Host({host, setSelectedDetails}) {
-  const [isSelected, setIsSelected] =useState(false)
+function Host({host, setSelectedDetails, setIsSelected, isSelected}) {
+  
 
   function handleClick(event) {
-    setIsSelected(prev => !prev)
+    setIsSelected(!isSelected)
     setSelectedDetails(host)
   }
 

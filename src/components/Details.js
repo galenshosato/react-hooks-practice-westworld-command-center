@@ -1,14 +1,14 @@
 import React from "react";
 import { Segment, Image } from "semantic-ui-react";
+import HostInfo from "./HostInfo.js"
 
 
-function Details({host}) {
-  // We'll render the logo if no host is selected. But if a host does get selected....
-  // Watch the video to see how this works in the app.
+function Details({host, isSelected}) {
+  
 
   return (
     <Segment id="details" className="HQComps">
-      {<Image size="medium" src={host.imageUrl} />}
+      {host=== {} ? <Image size="medium" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhKdcy5h_5VNWeWTy5NnhnA30_1kQKzbWhuA&usqp=CAU" /> : <HostInfo host={host} /> }
     </Segment>
   );
 }
