@@ -6,6 +6,9 @@ import Headquarters from "./Headquarters";
 
 function App() {
   const [hostList, setHostList] = useState([])
+  const [selectedDetails, setSelectedDetails] =useState({})
+  const [hostSelect, setHostSelect] =useState(false)
+  const [isSelected, setIsSelected] = useState(null)
 
   useEffect(() => {
     fetch('http://localhost:3001/hosts')
@@ -15,8 +18,8 @@ function App() {
 
   return (
     <Segment id="app">
-      <WestworldMap hostList={hostList} />
-      <Headquarters hostList={hostList}/>
+      <WestworldMap hostList={hostList} selectedDetails={selectedDetails} setSelectedDetails={setSelectedDetails} hostSelect={hostSelect} setHostSelect={setHostSelect} isSelected={isSelected} setIsSelected={setIsSelected} />
+      <Headquarters hostList={hostList} selectedDetails={selectedDetails} setSelectedDetails={setSelectedDetails} hostSelect={hostSelect} setHostSelect={setHostSelect} isSelected={isSelected} setIsSelected={setIsSelected}/>
     </Segment>
   );
 }

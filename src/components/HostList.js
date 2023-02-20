@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import { Card } from "semantic-ui-react";
 import Host from "./Host";
 
-function HostList({hostList, setSelectedDetails, setHostSelect}) {
-  const [isSelected, setIsSelected] = useState(null)
+function HostList({hostList, setSelectedDetails, setHostSelect, isSelected, setIsSelected}) {
+
+  let coldList = hostList.filter(host => {
+    return !host.active 
+  })
+  
   return (
     <Card.Group itemsPerRow={6}>
-      {hostList.map(host => {
+      {coldList.map(host => {
        return <Host key={host.id} host={host} setSelectedDetails={setSelectedDetails} setIsSelected={setIsSelected} isSelected={isSelected} setHostSelect={setHostSelect} />
       })}
     </Card.Group>

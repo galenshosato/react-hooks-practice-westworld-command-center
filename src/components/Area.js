@@ -1,13 +1,21 @@
 import React from "react";
 import "../stylesheets/Area.css";
+import Host from "./Host";
 
 
-function Area({area}) {
+function Area({area, hostList, selectedDetails, setSelectedDetails, hostSelect, setHostSelect, isSelected, setIsSelected}) {
+
+
   function cleanUpArea (name) {
     let cleanName = name.replace(/_/g, " ")
     let cleanNameUP = cleanName.toUpperCase()
     return cleanNameUP
   }
+
+  let filterList = hostList.filter(host => {
+    return host.area === area.name && host.active
+  })
+
   return (
     <div
       className="area"
@@ -16,7 +24,9 @@ function Area({area}) {
       <h3 className="labels">
         {cleanUpArea(area.name)}
       </h3>
-      {/* See Checkpoint 1 item 2 in the Readme for a clue as to what goes here */}
+      {filterList.map(host => {
+        return <Host key={host.id} host={host} selectedDetails={selectedDetails} setSelectedDetails={setSelectedDetails} hostSelect={hostSelect} setHostSelect={setHostSelect} isSelected={isSelected} setIsSelected={setIsSelected}  />
+      })}
     </div>
   );
 }
